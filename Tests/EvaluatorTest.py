@@ -1,5 +1,5 @@
 
-from Evaluator import Evaluator
+from GameLogic.Evaluator import Evaluator
 from twisted.trial import unittest
 
 class EvaluatorTest(unittest.TestCase):

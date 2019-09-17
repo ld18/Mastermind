@@ -1,5 +1,5 @@
 
-from Validator import Validator
+from GameLogic.Validator import Validator
 from twisted.trial import unittest
 
 class ValuatorTest(unittest.TestCase):

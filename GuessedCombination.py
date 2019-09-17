@@ -11,7 +11,7 @@ class GuessedCombination():
         self.combinations.append(validatedCombination)
 
     def __str__(self):
-        representation = "GuessedCombination: Valuator: \n"\
+        representation = "GuessedCombination: Validator: \n"\
                          + "\t"+ str(self.valuator)
         for combi in self.combinations:
             representation += "\n\t"+ combi.__str__()

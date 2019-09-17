@@ -1,7 +1,7 @@
-from Valuator import Valuator
+from Validator import Validator
 from GuessedCombination import GuessedCombination
 
-validator = Valuator([0, 1, 2, 6], 8)
+validator = Validator([0, 1, 2, 6], 8)
 guesCombi = GuessedCombination(validator)
 print(guesCombi)
 guesCombi.evaluateAndAddCombination([5, 1, 6, 2])

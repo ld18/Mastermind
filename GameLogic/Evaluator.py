@@ -1,5 +1,6 @@
 
 from GameLogic.Validator import Validator
+from GameLogic.Evaluation import Evaluation
 
 class Evaluator():
     def __init__(self, masterColorCombination, numberOfColors):
@@ -10,15 +11,14 @@ class Evaluator():
 
     def evaluateCombination(self, colorCombination):
         self.__vaidator.checkCombination(colorCombination)
-        rightColorRightPlacePoints = rightColorWrongPlacePoints = 0
+        evaluation = Evaluation(0, 0)
         for masterColor, color in zip(self.__masterColorCombination, colorCombination):
             if masterColor == color:
-                rightColorRightPlacePoints += 1
+                evaluation.rightColorRightPlace += 1
             elif masterColor in colorCombination:
-                    rightColorWrongPlacePoints += 1
-
-        self.__vaidator.checkEvaluation(rightColorWrongPlacePoints, rightColorRightPlacePoints)
-        return (rightColorWrongPlacePoints, rightColorRightPlacePoints)
+                evaluation.rightColorWrongPlace += 1
+        self.__vaidator.checkEvaluation(evaluation)
+        return evaluation
 
 
     def __str__(self):

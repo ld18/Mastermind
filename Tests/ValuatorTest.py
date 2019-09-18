@@ -1,5 +1,6 @@
 
 from GameLogic.Validator import Validator
+from GameLogic.Evaluation import Evaluation
 from twisted.trial import unittest
 
 class ValuatorTest(unittest.TestCase):
@@ -77,7 +78,7 @@ class ValuatorTest(unittest.TestCase):
             for endValueOfEval in range(0, 5):
                 if (startValueOfEval + endValueOfEval) <= 4:
                     #print(str(startValueOfEval) +" "+ str(endValueOfEval))
-                    sud.checkEvaluation(startValueOfEval, endValueOfEval)
+                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval))
 
     def testError_checkEvaluation(self):
         sud = Validator(4, 8)
@@ -86,19 +87,19 @@ class ValuatorTest(unittest.TestCase):
             for endValueOfEval in range(-2, 0):
                 #print(str(startValueOfEval) +" "+ str(endValueOfEval))
                 with self.assertRaises(ValueError):
-                    sud.checkEvaluation(startValueOfEval, endValueOfEval)
+                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval))
 
         for startValueOfEval in range(4, 6):
             for endValueOfEval in range(1, 6):
                 #print(str(startValueOfEval) +" "+ str(endValueOfEval))
                 with self.assertRaises(ValueError):
-                    sud.checkEvaluation(startValueOfEval, endValueOfEval)
+                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval))
 
         for startValueOfEval in range(1, 6):
             for endValueOfEval in range(4, 6):
                 #print(str(startValueOfEval) +" "+ str(endValueOfEval))
                 with self.assertRaises(ValueError):
-                    sud.checkEvaluation(startValueOfEval, endValueOfEval)
+                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval))
 
 if __name__ == '__main__':
     unittest.main()

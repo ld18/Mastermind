@@ -1,20 +1,15 @@
 
 class Evaluation():
-    def __init__(self, rightColorWrongPlace, rightColorRightPlace):
-        if not isinstance(rightColorWrongPlace, int):
-            raise ValueError('rightColorWrongPlace is not a int')
-        if not isinstance(rightColorRightPlace, int):
-            raise ValueError('rightColorRightPlace is not a int')
-        if rightColorWrongPlace < 0:
-            raise ValueError('rightColorWrongPlace is not valid (' + str(rightColorWrongPlace) + ")")
-        if rightColorRightPlace < 0:
-            raise ValueError('rightColorRightPlace is not valid (' + str(rightColorRightPlace) + ")")
+    def __init__(self, rightColorWrongPlace, rightColorRightPlace, gameFinished):
         self.rightColorWrongPlace = rightColorWrongPlace
         self.rightColorRightPlace = rightColorRightPlace
+        self.gameFinished = gameFinished
 
 
     def __eq__(self, other):
-        if self.rightColorWrongPlace != other.rightColorWrongPlace or self.rightColorRightPlace != other.rightColorRightPlace:
+        if self.rightColorWrongPlace != other.rightColorWrongPlace\
+                or self.rightColorRightPlace != other.rightColorRightPlace \
+                or self.gameFinished != other.gameFinished:
             return False
         return True
 
@@ -29,4 +24,6 @@ class Evaluation():
 
     def __str__(self):
         representation = "("+ str(self.rightColorWrongPlace) + "w|" + str(self.rightColorRightPlace) +"r)"
+        if self.gameFinished:
+            representation += " Bull's-Eye!!"
         return representation

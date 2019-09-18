@@ -1,27 +1,24 @@
 
-from GameLogic.Validator import Validator
 from GameLogic.Evaluation import Evaluation
 
 class Evaluator():
-    def __init__(self, masterColorCombination, numberOfColors):
+    def __init__(self, masterColorCombination):
         self.__masterColorCombination = masterColorCombination
-        self.__vaidator = Validator(len(masterColorCombination), numberOfColors)
-        self.__vaidator.checkCombination(masterColorCombination)
 
 
     def evaluateCombination(self, colorCombination):
-        self.__vaidator.checkCombination(colorCombination)
-        evaluation = Evaluation(0, 0)
+        evaluation = Evaluation(0, 0, False)
         for masterColor, color in zip(self.__masterColorCombination, colorCombination):
             if masterColor == color:
                 evaluation.rightColorRightPlace += 1
             elif masterColor in colorCombination:
                 evaluation.rightColorWrongPlace += 1
-        self.__vaidator.checkEvaluation(evaluation)
+        if evaluation.rightColorRightPlace == len(self.__masterColorCombination):
+            evaluation.gameFinished = True
         return evaluation
 
 
     def __str__(self):
-        representation = "Evaluator: Master combination: " + str(self.__masterColorCombination) + ", " + str(self.__vaidator)
+        representation = "Master combination " + str(self.__masterColorCombination)
         return representation
 

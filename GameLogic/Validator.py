@@ -22,6 +22,8 @@ class Validator():
     def checkCombination(self, colorCombination):
         if not isinstance(colorCombination, list):
             raise ValueError('colorCombination is not a list')
+        if not all(isinstance(color, int) for color in colorCombination):
+            raise ValueError('colorCombination is not a int list')
         if len(colorCombination) < 1:
             raise ValueError('colorCombination is not valid ('+ str(colorCombination) +")")
         if len(colorCombination) != self.__lengthOfGuess:
@@ -47,6 +49,6 @@ class Validator():
 
 
     def __str__(self):
-        representation = "Validator: Number of colors =" + str(self.__numberOfColors) + ", Length of guess: " + str(self.__lengthOfGuess)
+        representation = str(self.__lengthOfGuess) + " of " + str(self.__numberOfColors) +" colors"
         return representation
 

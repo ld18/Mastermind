@@ -1,14 +1,18 @@
 
 class Attempts():
-    def __init__(self, evaluator):
-        self.__evaluator = evaluator
+    def __init__(self):
         self.__combinations = []
 
 
-    def evaluateAndAddCombination(self, colorCombination):
-        evaluation = self.__evaluator.evaluateCombination(colorCombination)
-        evaluatedCombination = self.EvaluatedCombination(colorCombination, evaluation)
+    def addEvaluatedCombination(self, evaluatedCombination):
         self.__combinations.append(evaluatedCombination)
+
+
+    def clearAttempts(self):
+        self.__combinations = []
+
+    def getNumberOfAttempts(self):
+        return len(self.__combinations)
 
 
     def getBestAttempt(self):
@@ -20,25 +24,7 @@ class Attempts():
 
 
     def __str__(self):
-        representation = "Attempts: \n\t"+ str(self.__evaluator)
+        representation = "All Attempts:"
         for combi in self.__combinations:
             representation += "\n\t\t"+ str(combi)
         return representation
-
-
-
-    class EvaluatedCombination():
-        def __init__(self, colorCombination, evaluation):
-            self.colorCombination = colorCombination
-            self.evaluation = evaluation
-
-
-        def __eq__(self, other):
-            if self.colorCombination != other.colorCombination or self.evaluation != other.evaluation:
-                return False
-            return True
-
-
-        def __str__(self):
-            representation = "Combination: "+ str(self.colorCombination) +", Validation: "+ str(self.evaluation)
-            return representation

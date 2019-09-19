@@ -11,6 +11,7 @@ class Attempts():
     def clearAttempts(self):
         self.__combinations = []
 
+
     def getNumberOfAttempts(self):
         return len(self.__combinations)
 

@@ -13,7 +13,8 @@ class Evaluator():
                 evaluation.rightColorRightPlace += 1
             elif masterColor in colorCombination:
                 evaluation.rightColorWrongPlace += 1
-        if evaluation.rightColorRightPlace == len(self.__masterColorCombination):
+        if evaluation.rightColorRightPlace == len(self.__masterColorCombination) \
+                and colorCombination == self.__masterColorCombination:
             evaluation.gameFinished = True
         return evaluation
 

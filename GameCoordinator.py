@@ -7,7 +7,7 @@ from Players.HumanPlayer import HumanPlayer
 
 class GameCoordinator():
 
-    def __init__(self, lengthOfGuess, numberOfColors, masterCombination):
+    def __init__(self, lengthOfGuess, numberOfColors, masterCombination, maxNumberOfAttempts):
         self.__gameIsRunning = False
         self.__player = HumanPlayer()
         self.__masterCombination = masterCombination
@@ -15,29 +15,33 @@ class GameCoordinator():
         self.__validator.checkCombination(self.__masterCombination)
         self.__evaluator = Evaluator(self.__masterCombination)
         self.__attempts = Attempts()
-
-
-    def prepareForNewGame(self):
-        self.__attempts.clearAttempts()
-        self.__gameIsRunning = True
+        self.__maxNumberOfAttempts = maxNumberOfAttempts
 
 
     def playGame(self):
-        if self.__gameIsRunning:
-            print("Start a new MindMaster Game. Setup is "+ str(self.__validator) +".")
+        if not self.__gameIsRunning:
+            self.__attempts.clearAttempts()
+            self.__gameIsRunning = True
+            print("Started a new MindMaster Game.")
+            print("Setup is "+ str(self.__validator) +", you have a maximum number of "+ str(self.__maxNumberOfAttempts) +" attempts.")
             while self.__gameIsRunning:
-                self.__playRound()
-                if self.__gameIsRunning:
-                    print(self.__attempts.getLastAttempt())
+                if self.__attempts.getNumberOfAttempts() < self.__maxNumberOfAttempts:
+                    self.__playRound()
+                else:
+                    self.__gameIsRunning = False
+                    print("You lost the game.")
+                    print("You have reached the maximum number of "+ str(self.__attempts.getNumberOfAttempts()) +" tries.")
+
 
 
     def __playRound(self):
-        if self.__gameIsRunning:
-            gameIsFinished = self.__getAndProcessCombination()
-            if gameIsFinished:
-                self.__gameIsRunning = False
-                print("You won the game. The MasterCombination was: " + str(self.__masterCombination))
-                print("You needed " + str(self.__attempts.getNumberOfAttempts()) + " tries.")
+        gameIsFinished = self.__getAndProcessCombination()
+        if gameIsFinished:
+            self.__gameIsRunning = False
+            print("You won the game.")
+            print("The MasterCombination was: "+ str(self.__masterCombination) +". You needed "+ str(self.__attempts.getNumberOfAttempts()) +" of "+ str(self.__maxNumberOfAttempts) +" tries.")
+        else:
+            print(str(self.__attempts.getLastAttempt()) +" {"+ str(self.__attempts.getNumberOfAttempts()) +"/"+ str(self.__maxNumberOfAttempts) +"}")
 
 
     def __getAndProcessCombination(self):

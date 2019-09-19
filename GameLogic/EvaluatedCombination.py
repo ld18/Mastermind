@@ -5,7 +5,8 @@ class EvaluatedCombination():
         self.evaluation = evaluation
 
     def __eq__(self, other):
-        if self.colorCombination != other.colorCombination or self.evaluation != other.evaluation:
+        if self.colorCombination != other.colorCombination \
+                or self.evaluation != other.evaluation:
             return False
         return True
 

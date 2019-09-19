@@ -4,12 +4,13 @@ from GameLogic.Evaluator import Evaluator
 from GameLogic.EvaluatedCombination import EvaluatedCombination
 from GameLogic.Attempts import Attempts
 from Players.HumanPlayer import HumanPlayer
+from Players.NPC import NPC
 
 class GameCoordinator():
 
     def __init__(self, lengthOfGuess, numberOfColors, masterCombination, maxNumberOfAttempts):
         self.__gameIsRunning = False
-        self.__player = HumanPlayer()
+        self.__player = NPC(lengthOfGuess, numberOfColors) #HumanPlayer() #
         self.__masterCombination = masterCombination
         self.__validator = Validator(lengthOfGuess, numberOfColors)
         self.__validator.checkCombination(self.__masterCombination)
@@ -23,22 +24,22 @@ class GameCoordinator():
             self.__attempts.clearAttempts()
             self.__gameIsRunning = True
             print("Started a new MindMaster Game.")
-            print("Setup is "+ str(self.__validator) +", you have a maximum number of "+ str(self.__maxNumberOfAttempts) +" attempts.")
+            print("Setup is "+ str(self.__validator) +", you have a maximum number of "+ str(self.__maxNumberOfAttempts) +" attempts.\n")
             while self.__gameIsRunning:
                 if self.__attempts.getNumberOfAttempts() < self.__maxNumberOfAttempts:
                     self.__playRound()
                 else:
                     self.__gameIsRunning = False
-                    print("You lost the game.")
+                    print("\nYou lost the game.")
                     print("You have reached the maximum number of "+ str(self.__attempts.getNumberOfAttempts()) +" tries.")
-
+                    print("You best attempt was "+ str(self.__attempts.getBestAttempt()) +".")
 
 
     def __playRound(self):
         gameIsFinished = self.__getAndProcessCombination()
         if gameIsFinished:
             self.__gameIsRunning = False
-            print("You won the game.")
+            print("\nYou won the game.")
             print("The MasterCombination was: "+ str(self.__masterCombination) +". You needed "+ str(self.__attempts.getNumberOfAttempts()) +" of "+ str(self.__maxNumberOfAttempts) +" tries.")
         else:
             print(str(self.__attempts.getLastAttempt()) +" {"+ str(self.__attempts.getNumberOfAttempts()) +"/"+ str(self.__maxNumberOfAttempts) +"}")

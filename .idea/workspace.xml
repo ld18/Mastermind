@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3166b95f-e03c-4c33-bba0-24e7e35c186e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Tests/EvaluatedCombinationTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameCoordinator.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameCoordinator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameLogic/Attempts.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameLogic/Attempts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameLogic/EvaluatedCombination.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameLogic/EvaluatedCombination.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameLogic/Evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameLogic/Evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameLogic/Validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameLogic/Validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/AttemptsTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/AttemptsTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Players/NPC.py" beforeDir="false" afterPath="$PROJECT_DIR$/Players/NPC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,17 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,7 +53,6 @@
         <option value="$PROJECT_DIR$/GameLogic/AttemptCollection.py" />
         <option value="$PROJECT_DIR$/Players.py" />
         <option value="$PROJECT_DIR$/Players/HumanMaster.py" />
-        <option value="$PROJECT_DIR$/Players/NPC.py" />
         <option value="$PROJECT_DIR$/GameLogic/EvaluatedCombi.py" />
         <option value="$PROJECT_DIR$/Players/HumanPlayer.py" />
         <option value="$PROJECT_DIR$/Tests/EvaluationTest.py" />
@@ -84,6 +67,7 @@
         <option value="$PROJECT_DIR$/GameLogic/EvaluatedCombination.py" />
         <option value="$PROJECT_DIR$/GameCoordinator.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Players/NPC.py" />
       </list>
     </option>
   </component>
@@ -100,7 +84,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,6 +110,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,7 +290,7 @@
   <component name="ToolWindowManager">
     <frame x="828" y="0" width="1739" height="1447" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15128052" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1510876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -375,13 +359,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Players.py" />
     <entry file="file://$PROJECT_DIR$/Players/HumanMaster.py" />
-    <entry file="file://$PROJECT_DIR$/Players/NPC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files/Python37/Lib/site-packages/twisted/internet/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -441,13 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Players/HumanPlayer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameLogic/Validator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="846">
@@ -483,10 +453,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Players/HumanPlayer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="49" lean-forward="true" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GameCoordinator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="612">
+          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Players/NPC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="72" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
         </state>
       </provider>
     </entry>

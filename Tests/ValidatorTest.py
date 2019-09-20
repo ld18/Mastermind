@@ -42,7 +42,7 @@ class ValidatorTest(unittest.TestCase):
         for startValueOfCombi in range(0, 5):
             combi = list(range(startValueOfCombi, startValueOfCombi + 4))
             #print(str(startValueOfCombi) +" "+ str(startValueOfCombi + 4) +" "+ str(combi) +" "+ str(len(combi)))
-            sud.checkCombination(combi)
+            sud.validateCombination(combi)
 
     def testError_checkCombination(self):
         sud = Validator(4, 8)
@@ -52,24 +52,24 @@ class ValidatorTest(unittest.TestCase):
                 combi = list(range(startValueOfCombi, endValueOfCombi))
                 with self.assertRaises(ValueError):
                     #print(str(startValueOfCombi) +" "+ str(endValueOfCombi) +" "+ str(combi) +" "+ str(len(combi)))
-                    sud.checkCombination(combi)
+                    sud.validateCombination(combi)
         #numbers and dimension to high
         for startValueOfCombi in range(4, 6):
             for endValueOfCombi in range(4, 6):
                 combi = list(range(startValueOfCombi, endValueOfCombi))
                 with self.assertRaises(ValueError):
                     #print(str(startValueOfCombi) +" "+ str(endValueOfCombi) +" "+ str(combi) +" "+ str(len(combi)))
-                    sud.checkCombination(combi)
+                    sud.validateCombination(combi)
 
         combi = [1, 1, 1, 1]
         with self.assertRaises(ValueError):
-            sud.checkCombination(combi)
+            sud.validateCombination(combi)
         combi = [1, 1, 2, 1]
         with self.assertRaises(ValueError):
-            sud.checkCombination(combi)
+            sud.validateCombination(combi)
         combi = [1, 2, 1, 3]
         with self.assertRaises(ValueError):
-            sud.checkCombination(combi)
+            sud.validateCombination(combi)
 
     def testFunction_checkEvaluation(self):
         sud = Validator(4, 8)
@@ -78,8 +78,8 @@ class ValidatorTest(unittest.TestCase):
             for endValueOfEval in range(0, 5):
                 if (startValueOfEval + endValueOfEval) <= 4:
                     #print(str(startValueOfEval) +" "+ str(endValueOfEval))
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
 
     def testError_checkEvaluation(self):
         sud = Validator(4, 8)
@@ -88,22 +88,22 @@ class ValidatorTest(unittest.TestCase):
             for endValueOfEval in range(-2, 0):
                 #print(str(startValueOfEval) +" "+ str(endValueOfEval))
                 with self.assertRaises(ValueError):
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
 
         for startValueOfEval in range(4, 6):
             for endValueOfEval in range(1, 6):
                 #print(str(startValueOfEval) +" "+ str(endValueOfEval))
                 with self.assertRaises(ValueError):
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
 
         for startValueOfEval in range(1, 6):
             for endValueOfEval in range(4, 6):
                 #print(str(startValueOfEval) +" "+ str(endValueOfEval))
                 with self.assertRaises(ValueError):
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
-                    sud.checkEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
+                    sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
 
 if __name__ == '__main__':
     unittest.main()

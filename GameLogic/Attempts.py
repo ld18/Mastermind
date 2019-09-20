@@ -8,6 +8,10 @@ class Attempts():
         self.__combinations.append(evaluatedCombination)
 
 
+    def checkIfCombinationExist(self, combination):
+        return any(combi.colorCombination == combination for combi in self.__combinations)
+
+
     def clearAttempts(self):
         self.__combinations = []
 

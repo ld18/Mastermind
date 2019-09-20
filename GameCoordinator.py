@@ -11,12 +11,13 @@ class GameCoordinator():
     def __init__(self, lengthOfGuess, numberOfColors, masterCombination, maxNumberOfAttempts):
         self.__gameIsRunning = False
         self.__player = NPC(lengthOfGuess, numberOfColors) #HumanPlayer() #
-        self.__masterCombination = masterCombination
         self.__validator = Validator(lengthOfGuess, numberOfColors)
-        self.__validator.checkCombination(self.__masterCombination)
-        self.__evaluator = Evaluator(self.__masterCombination)
+        self.__masterCombination = masterCombination
+        self.__validator.validateCombination(masterCombination)
+        self.__evaluator = Evaluator(masterCombination)
         self.__attempts = Attempts()
         self.__maxNumberOfAttempts = maxNumberOfAttempts
+        self.__validator.validateMaxNumberOfAttempts(maxNumberOfAttempts)
 
 
     def playGame(self):
@@ -56,7 +57,7 @@ class GameCoordinator():
         while(True):
             try:
                 userCmbi = self.__player.readInputIn()
-                self.__validator.checkCombination(userCmbi)
+                self.__validator.validateCombination(userCmbi)
                 break
             except ValueError as e :
                 print(str(e) +". Combination not valid, do it again. ")

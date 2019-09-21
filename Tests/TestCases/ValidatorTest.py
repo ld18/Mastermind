@@ -3,7 +3,18 @@ from GameLogic.Validator import Validator
 from GameLogic.Evaluation import Evaluation
 from twisted.trial import unittest
 
-class ValidatorTest(unittest.TestCase):
+class Testcases(unittest.TestCase):
+
+
+    def testAll(self):
+        self.testFunction_Constructor()
+        self.testError_Constructor()
+        self.testFunction_checkCombination()
+        self.testError_checkCombination()
+        self.testError_checkCombination()
+        self.testFunction_checkEvaluation()
+        self.testError_checkEvaluation()
+
 
     def testFunction_Constructor(self):
         #valid construcotrs
@@ -11,6 +22,7 @@ class ValidatorTest(unittest.TestCase):
             for guessLenght in range(1, numColors + 1):
                 #print(str(guessLenght) +" "+ str(numColors))
                 sud = Validator(guessLenght, numColors)
+
 
     def testError_Constructor(self):
         #invalid construcotrs
@@ -36,6 +48,7 @@ class ValidatorTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             sud = Validator(5, 4)
 
+
     def testFunction_checkCombination(self):
         sud = Validator(4, 8)
         #valid combination
@@ -43,6 +56,7 @@ class ValidatorTest(unittest.TestCase):
             combi = list(range(startValueOfCombi, startValueOfCombi + 4))
             #print(str(startValueOfCombi) +" "+ str(startValueOfCombi + 4) +" "+ str(combi) +" "+ str(len(combi)))
             sud.validateCombination(combi)
+
 
     def testError_checkCombination(self):
         sud = Validator(4, 8)
@@ -71,6 +85,7 @@ class ValidatorTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             sud.validateCombination(combi)
 
+
     def testFunction_checkEvaluation(self):
         sud = Validator(4, 8)
         #valid evaluations
@@ -80,6 +95,7 @@ class ValidatorTest(unittest.TestCase):
                     #print(str(startValueOfEval) +" "+ str(endValueOfEval))
                     sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
                     sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
+
 
     def testError_checkEvaluation(self):
         sud = Validator(4, 8)
@@ -104,6 +120,7 @@ class ValidatorTest(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
                     sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
+
 
 if __name__ == '__main__':
     unittest.main()

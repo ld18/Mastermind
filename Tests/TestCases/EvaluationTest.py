@@ -2,7 +2,12 @@
 from GameLogic.Evaluation import Evaluation
 from twisted.trial import unittest
 
-class EvaluationTest(unittest.TestCase):
+class Testcases(unittest.TestCase):
+
+
+    def testAll(self):
+        self.test_eq()
+        self.test_gt()
 
 
     def test_eq(self):
@@ -33,6 +38,7 @@ class EvaluationTest(unittest.TestCase):
         self.assertEqual(Evaluation(1, 2, False) == Evaluation(1, 0, False), False)
         self.assertEqual(Evaluation(4, 0, False) == Evaluation(1, 0, False), False)
         self.assertEqual(Evaluation(1, 1, False) == Evaluation(1, 2, False), False)
+
 
     def test_gt(self):
         #equal evaluations
@@ -71,6 +77,7 @@ class EvaluationTest(unittest.TestCase):
         self.assertEqual(Evaluation(1, 2, True) > Evaluation(1, 3, True), False)
         self.assertEqual(Evaluation(4, 0, True) > Evaluation(5, 0, True), False)
         self.assertEqual(Evaluation(1, 0, True) > Evaluation(1, 1, True), False)
+
 
 if __name__ == '__main__':
     unittest.main()

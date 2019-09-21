@@ -4,7 +4,14 @@ from GameLogic.FinalScore import FinalScore
 from Players.TestPlayer import TestPlayer
 from twisted.trial import unittest
 
-class EvaluationTest(unittest.TestCase):
+class Testcases(unittest.TestCase):
+
+
+    def testAll(self):
+        self.testFunction_Constructor()
+        self.testError_Constructor()
+        self.testError_playGame()
+
 
     def testFunction_Constructor(self):
         #valid construcotrs
@@ -116,6 +123,7 @@ class EvaluationTest(unittest.TestCase):
         sud.player = tp
         finalScore = sud.playGame()
         self.assertEqual(finalScore == FinalScore(False, 4), True)
+
 
 if __name__ == '__main__':
     unittest.main()

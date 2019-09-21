@@ -34,7 +34,8 @@ class Attempts():
         allWrongCombinations = []
         for combi in self.__combinations:
             if combi.evaluation == Evaluation(0, 0, False):
-                allWrongCombinations.append(combi.colorCombination)
+                if not combi.colorCombination in allWrongCombinations:
+                    allWrongCombinations.append(combi.colorCombination)
         return allWrongCombinations
 
 

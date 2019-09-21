@@ -16,9 +16,9 @@ class GameCoordinator():
         self.__validator.validateCombination(masterCombination)
         self.__evaluator = Evaluator(masterCombination)
         self.__attempts = Attempts()
-        self.player = NPC(lengthOfGuess, numberOfColors, self.__attempts) #HumanPlayer() #
         self.__maxNumberOfAttempts = maxNumberOfAttempts
         self.__validator.validateMaxNumberOfAttempts(maxNumberOfAttempts)
+        self.player = HumanPlayer() #NPC(lengthOfGuess, numberOfColors, self.__attempts) #
 
 
     def playGame(self):
@@ -76,5 +76,5 @@ class GameCoordinator():
                 self.__validator.validateCombination(userCmbi)
                 break
             except ValueError as e :
-                print(str(e) +". Combination not valid, do it again. ")
+                print(str(e) +". Combination not valid, do it again. Just write the color values seperated by a whitespace and hit enter.")
         return userCmbi

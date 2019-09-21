@@ -3,7 +3,12 @@ from GameLogic.Evaluation import Evaluation
 from GameLogic.EvaluatedCombination import EvaluatedCombination
 from twisted.trial import unittest
 
-class EvaluationTest(unittest.TestCase):
+class Testcases(unittest.TestCase):
+
+
+    def testAll(self):
+        self.testFunction_eq()
+
 
     def testFunction_eq(self):
         #equal evaluations

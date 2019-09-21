@@ -3,7 +3,12 @@ from GameLogic.Evaluator import Evaluator
 from GameLogic.Evaluation import Evaluation
 from twisted.trial import unittest
 
-class EvaluatorTest(unittest.TestCase):
+class Testcases(unittest.TestCase):
+
+
+    def testAll(self):
+        self.testFunction_evaluateCombination()
+
 
     def testFunction_evaluateCombination(self):
         sud = Evaluator([0, 1, 2, 3])

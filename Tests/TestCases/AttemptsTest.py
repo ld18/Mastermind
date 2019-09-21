@@ -5,7 +5,16 @@ from GameLogic.Evaluation import Evaluation
 from GameLogic.EvaluatedCombination import EvaluatedCombination
 from twisted.trial import unittest
 
-class EvaluationTest(unittest.TestCase):
+class Testcases(unittest.TestCase):
+
+
+    def testAll(self):
+        self.testFunction_addEvaluatedCombination()
+        self.testFunction_checkIfCombinationExist()
+        self.testFunction_getBestAttempt()
+        self.testFunction_getLastAttempt()
+        self.testFunction_getCombinationsWithNoRightColor()
+
 
     def testFunction_addEvaluatedCombination(self):
         evaluator = Evaluator([0, 1, 2, 3])
@@ -108,6 +117,43 @@ class EvaluationTest(unittest.TestCase):
         evaluatedCombi = EvaluatedCombination([5, 1, 2, 0], Evaluation(1, 2, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         self.assertEqual(attempts.getLastAttempt() == evaluatedCombi, True)
+
+
+    def testFunction_getCombinationsWithNoRightColor(self):
+        evaluator = Evaluator([0, 1, 2, 3])
+        attempts = Attempts()
+
+        evaluatedCombi = EvaluatedCombination([5, 6, 7, 0], Evaluation(1, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [], True)
+
+        evaluatedCombi = EvaluatedCombination([4, 5, 6, 7], Evaluation(0, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [[4, 5, 6, 7]], True)
+
+        evaluatedCombi = EvaluatedCombination([5, 1, 7, 0], Evaluation(1, 1, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [[4, 5, 6, 7]], True)
+
+        evaluatedCombi = EvaluatedCombination([5, 6, 7, 0], Evaluation(1, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [[4, 5, 6, 7]], True)
+
+        evaluatedCombi = EvaluatedCombination([0, 1, 2, 5], Evaluation(0, 1, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [[4, 5, 6, 7]], True)
+
+        evaluatedCombi = EvaluatedCombination([4, 6, 5, 7], Evaluation(0, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [[4, 5, 6, 7], [4, 6, 5, 7]], True)
+
+        evaluatedCombi = EvaluatedCombination([4, 6, 5, 7], Evaluation(0, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [[4, 5, 6, 7], [4, 6, 5, 7]], True)
+
+        evaluatedCombi = EvaluatedCombination([0, 1, 2, 3], Evaluation(0, 4, True))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        self.assertEqual(attempts.getCombinationsWithNoRightColor() == [[4, 5, 6, 7], [4, 6, 5, 7]], True)
 
 
 if __name__ == '__main__':

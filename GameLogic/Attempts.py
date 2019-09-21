@@ -1,4 +1,6 @@
 
+from GameLogic.Evaluation import Evaluation
+
 class Attempts():
     def __init__(self):
         self.__combinations = []
@@ -21,10 +23,24 @@ class Attempts():
 
 
     def getBestAttempt(self):
+        if len(self.__combinations) <= 0:
+            raise ValueError('__combinations is empty')
         return max(self.__combinations, key =lambda x: x.evaluation)
 
 
+    def getCombinationsWithNoRightColor(self):
+        if len(self.__combinations) <= 0:
+            raise ValueError('__combinations is empty')
+        allWrongCombinations = []
+        for combi in self.__combinations:
+            if combi.evaluation == Evaluation(0, 0, False):
+                allWrongCombinations.append(combi.colorCombination)
+        return allWrongCombinations
+
+
     def getLastAttempt(self):
+        if len(self.__combinations) <= 0:
+            raise ValueError('__combinations is empty')
         return self.__combinations[-1]
 
 

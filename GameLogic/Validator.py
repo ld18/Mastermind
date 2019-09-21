@@ -29,7 +29,7 @@ class Validator():
         if len(colorCombination) != self.__lengthOfGuess:
             raise ValueError('colorCombination is the right size (' + str(colorCombination) +", " + str(self.__lengthOfGuess) + ")")
         if not all(0 <= color < self.__numberOfColors for color in colorCombination):
-            raise ValueError(' a color in the colorCombination is out of range (' + str(colorCombination) +", " + str(self.__numberOfColors) + ")")
+            raise ValueError('a color in the colorCombination is out of range (' + str(colorCombination) +", " + str(self.__numberOfColors) + ")")
         if len(colorCombination) != len(set(colorCombination)):
             raise ValueError('colorCombination contains several times the same value ('+ str(colorCombination) +")")
 

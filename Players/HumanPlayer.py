@@ -1,5 +1,7 @@
 
-class HumanPlayer():
+from Players.AbstractPlayer import AbstractPlayer
+
+class HumanPlayer(AbstractPlayer):
 
     def readInputIn(self):
         rawInput = input("Whats your new guessed combination? ")

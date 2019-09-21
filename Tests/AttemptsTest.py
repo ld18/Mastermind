@@ -38,6 +38,8 @@ class EvaluationTest(unittest.TestCase):
     def testFunction_checkIfCombinationExist(self):
         attempts = Attempts()
 
+        self.assertEqual(attempts.checkIfCombinationExist([0, 0, 0]), False)
+
         attempts.addEvaluatedCombination(EvaluatedCombination([0, 0, 1], Evaluation(0, 0, False)))
         attempts.addEvaluatedCombination(EvaluatedCombination([0, 1, 0], Evaluation(1, 0, False)))
         attempts.addEvaluatedCombination(EvaluatedCombination([0, 1, 1], Evaluation(1, 1, False)))
@@ -56,6 +58,11 @@ class EvaluationTest(unittest.TestCase):
     def testFunction_getBestAttempt(self):
         evaluator = Evaluator([0, 1, 2, 3])
         attempts = Attempts()
+
+        with self.assertRaises(ValueError):
+            attempts.getBestAttempt()
+        with self.assertRaises(ValueError):
+            attempts.getLastAttempt()
 
         evaluatedCombi = EvaluatedCombination([4, 5, 6, 7], Evaluation(0, 0, False))
         attempts.addEvaluatedCombination(evaluatedCombi)

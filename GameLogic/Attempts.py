@@ -2,12 +2,22 @@
 from GameLogic.Evaluation import Evaluation
 
 class Attempts():
-    def __init__(self):
+
+    def __init__(self, commentate = False):
         self.__combinations = []
+        self.__commentate = commentate
 
 
     def addEvaluatedCombination(self, evaluatedCombination):
         self.__combinations.append(evaluatedCombination)
+        if self.__commentate:
+            if evaluatedCombination.evaluation == Evaluation(0, 0, False):
+                print("This was a great nothing... .. .")
+            elif evaluatedCombination.evaluation == Evaluation(0, len(evaluatedCombination.colorCombination), True):
+                print("Bull's-Eye!!")
+            elif (evaluatedCombination.evaluation.rightColorWrongPlace + evaluatedCombination.evaluation.rightColorRightPlace) == len(evaluatedCombination.colorCombination):
+                print("On the way to Victory.")
+
 
 
     def checkIfCombinationExist(self, combination):
@@ -37,6 +47,16 @@ class Attempts():
                 if not combi.colorCombination in allWrongCombinations:
                     allWrongCombinations.append(combi.colorCombination)
         return allWrongCombinations
+
+
+    def getCombinationWithAllRightColors(self):
+        if len(self.__combinations) <= 0:
+            raise ValueError('__combinations is empty')
+        lenghtOfGuess = len(self.__combinations[0].colorCombination)
+        for combi in self.__combinations:
+            if (combi.evaluation.rightColorRightPlace + combi.evaluation.rightColorWrongPlace) == lenghtOfGuess:
+                return combi.colorCombination
+        raise ValueError('__combinations has no good attempts')
 
 
     def getLastAttempt(self):

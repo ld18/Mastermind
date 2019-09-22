@@ -1,11 +1,11 @@
 
-from abc import ABC, abstractmethod
+import abc
 
-class AbstractPlayer(ABC):
+class AbstractPlayer(abc.ABC):
 
     def __init__(self):
         super().__init__()
 
-    @abstractmethod
+    @abc.abstractmethod
     def readInputIn(self):
         pass

@@ -1,6 +1,8 @@
 
 import random
+from itertools import permutations
 from Players.AbstractPlayer import AbstractPlayer
+from GameLogic.Colorcombination import Colorcombination
 
 class NPC(AbstractPlayer):
 
@@ -26,13 +28,43 @@ class NPC(AbstractPlayer):
 
 
     def strategy_automaticImprovedRandom(self):
+        newCombination = self.__generateNewCombinatio()
+        while self.__checkForDeadLoss(newCombination) \
+                or self.__checkForDuplicate(newCombination):
+            newCombination = self.__generateNewCombinatio()
+        return newCombination
+
+
+    def __generateNewCombinatio(self):
         newCombination = random.sample(range(0, self.__numberOfColors), self.__lengthOfGuess)
-        allWrongCombinations = []
         try:
-            allWrongCombinations = self.__attempts.getCombinationsWithNoRightColor()
+            allRightColorsCombination = self.__attempts.getCombinationWithAllRightColors()
+            newPossibleCombinations = list(permutations(allRightColorsCombination.colorCombination))
+            for index, newPossibleCombination in enumerate(newPossibleCombinations):
+                newPossibleCombination = list(newPossibleCombination)
+                if not self.__checkForDuplicate(newPossibleCombination) and index > 0:
+                    newCombination = newPossibleCombination
+                    #print("__generateNewCombinatio "+ str(newCombination))
+                    break
         except ValueError:
             pass
-        while self.__attempts.checkIfCombinationExist(newCombination) \
-                or newCombination in allWrongCombinations:
-            newCombination = random.sample(range(0, self.__numberOfColors), self.__lengthOfGuess)
         return newCombination
+
+
+    def __checkForDeadLoss(self, combination):
+        try:
+            allWrongCombinations = self.__attempts.getCombinationsWithNoRightColor()
+            for wrongCombination in allWrongCombinations:
+                if Colorcombination(combination).hasAnyColorInCommon(wrongCombination):
+                    #print("__checkForDeadLoss "+ str(combination))
+                    return True
+        except ValueError:
+            pass
+        return False
+
+
+    def __checkForDuplicate(self, combination):
+        if self.__attempts.checkIfCombinationExist(Colorcombination(combination)):
+            #print("__checkForDuplicate " + str(combination))
+            return True
+        return False

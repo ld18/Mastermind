@@ -1,4 +1,6 @@
 
+from termcolor import colored
+
 class Evaluation():
     def __init__(self, rightColorWrongPlace, rightColorRightPlace, gameFinished):
         self.rightColorWrongPlace = rightColorWrongPlace
@@ -23,7 +25,15 @@ class Evaluation():
 
 
     def __str__(self):
-        representation = "("+ str(self.rightColorWrongPlace) + "w|" + str(self.rightColorRightPlace) +"r)"
-        if self.gameFinished:
-            representation += " Bull's-Eye!!"
+        representation = "("
+        if self.rightColorWrongPlace > 0:
+            representation += str(self.rightColorWrongPlace)
+        else:
+            representation += "-"
+        representation += "w|"
+        if self.rightColorRightPlace > 0:
+            representation += colored(str(self.rightColorRightPlace) +"r", 'red')
+        else:
+            representation += "-r"
+        representation += ")"
         return representation

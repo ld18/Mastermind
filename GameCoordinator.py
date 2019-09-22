@@ -3,6 +3,7 @@ from GameLogic.Validator import Validator
 from GameLogic.Evaluator import Evaluator
 from GameLogic.EvaluatedCombination import EvaluatedCombination
 from GameLogic.Attempts import Attempts
+from GameLogic.Colorcombination import Colorcombination
 from GameLogic.FinalScore import FinalScore
 from Players.HumanPlayer import HumanPlayer
 from Players.NPC import NPC
@@ -15,10 +16,10 @@ class GameCoordinator():
         self.__masterCombination = masterCombination
         self.__validator.validateCombination(masterCombination)
         self.__evaluator = Evaluator(masterCombination)
-        self.__attempts = Attempts()
+        self.__attempts = Attempts(commentate = False)
         self.__maxNumberOfAttempts = maxNumberOfAttempts
         self.__validator.validateMaxNumberOfAttempts(maxNumberOfAttempts)
-        self.player = HumanPlayer() #NPC(lengthOfGuess, numberOfColors, self.__attempts) #
+        self.player = NPC(lengthOfGuess, numberOfColors, self.__attempts) #HumanPlayer() #
 
 
     def playGame(self):
@@ -40,19 +41,19 @@ class GameCoordinator():
         print("Setup is "+ str(self.__validator) +", you have a maximum number of "+ str(self.__maxNumberOfAttempts) +" attempts.\n")
 
 
-    def __gameLost(self):
-        self.__gameIsRunning = False
-        print("\nYou lost the game.")
-        print("You have reached the maximum number of "+ str(self.__attempts.getNumberOfAttempts()) +" tries.")
-        print("You best attempt was "+ str(self.__attempts.getBestAttempt()) +".")
-
-
     def __playRound(self):
         gameIsFinished = self.__getAndProcessCombination()
         if gameIsFinished:
             self.__gameWon()
         else:
             print(str(self.__attempts.getLastAttempt()) +" {"+ str(self.__attempts.getNumberOfAttempts()) +"/"+ str(self.__maxNumberOfAttempts) +"}")
+
+
+    def __gameLost(self):
+        self.__gameIsRunning = False
+        print("\nYou lost the game.")
+        print("You have reached the maximum number of "+ str(self.__attempts.getNumberOfAttempts()) +" tries.")
+        print("You best attempt was "+ str(self.__attempts.getBestAttempt()) +".")
 
 
     def __gameWon(self):
@@ -72,9 +73,9 @@ class GameCoordinator():
     def __getNewUserCombination(self):
         while(True):
             try:
-                userCmbi = self.player.readInputIn()
+                userCmbi = Colorcombination(self.player.readInputIn())
                 self.__validator.validateCombination(userCmbi)
                 break
-            except ValueError as e :
+            except ValueError as e:
                 print(str(e) +". Combination not valid, do it again. Just write the color values seperated by a whitespace and hit enter.")
         return userCmbi

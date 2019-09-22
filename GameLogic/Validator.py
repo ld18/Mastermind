@@ -19,19 +19,27 @@ class Validator():
             raise ValueError('__lengthOfGuess is below or equal to __numberOfColors (' + str(self.__lengthOfGuess) + ", " + str(self.__numberOfColors) + ")")
 
 
-    def validateCombination(self, colorCombination):
-        if not isinstance(colorCombination, list):
-            raise ValueError('colorCombination is not a list')
-        if not all(isinstance(color, int) for color in colorCombination):
-            raise ValueError('colorCombination is not a int list')
-        if len(colorCombination) < 1:
-            raise ValueError('colorCombination is below 1 ('+ str(colorCombination) +")")
-        if len(colorCombination) != self.__lengthOfGuess:
-            raise ValueError('colorCombination is the right size (' + str(colorCombination) +", " + str(self.__lengthOfGuess) + ")")
-        if not all(0 <= color < self.__numberOfColors for color in colorCombination):
-            raise ValueError('a color in the colorCombination is out of range (' + str(colorCombination) +", " + str(self.__numberOfColors) + ")")
-        if len(colorCombination) != len(set(colorCombination)):
-            raise ValueError('colorCombination contains several times the same value ('+ str(colorCombination) +")")
+    def validateCombination(self, combination):
+        if not isinstance(combination.colorCombination, list):
+            raise ValueError('combination is not a list')
+        if not all(isinstance(color, int) for color in combination.colorCombination):
+            raise ValueError('combination is not a int list')
+        if len(combination) < 1:
+            raise ValueError('combination is below 1 (' + str(combination) + ")")
+        if len(combination) != self.__lengthOfGuess:
+            raise ValueError('combination is the right size (' + str(combination) + ", " + str(self.__lengthOfGuess) + ")")
+        if not all(0 <= color < self.__numberOfColors for color in combination.colorCombination):
+            raise ValueError('a color in the combination is out of range (' + str(combination) + ", " + str(self.__numberOfColors) + ")")
+        if len(combination) != len(set(combination.colorCombination)):
+            raise ValueError('combination contains several times the same value (' + str(combination) + ")")
+
+
+    def validateAttempts(self, attempts):
+        raise NotImplementedError()
+
+
+    def validateForNoObviousRrrors(self, attempts):
+        raise NotImplementedError()
 
 
     def validateEvaluation(self, evaluation):

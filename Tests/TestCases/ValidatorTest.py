@@ -1,6 +1,7 @@
 
 from GameLogic.Validator import Validator
 from GameLogic.Evaluation import Evaluation
+from GameLogic.Colorcombination import Colorcombination
 from twisted.trial import unittest
 
 class Testcases(unittest.TestCase):
@@ -14,6 +15,8 @@ class Testcases(unittest.TestCase):
         self.testError_checkCombination()
         self.testFunction_checkEvaluation()
         self.testError_checkEvaluation()
+        self.testError_validateAttempts()
+        self.testError_validateForNoObviousRrrors()
 
 
     def testFunction_Constructor(self):
@@ -55,7 +58,7 @@ class Testcases(unittest.TestCase):
         for startValueOfCombi in range(0, 5):
             combi = list(range(startValueOfCombi, startValueOfCombi + 4))
             #print(str(startValueOfCombi) +" "+ str(startValueOfCombi + 4) +" "+ str(combi) +" "+ str(len(combi)))
-            sud.validateCombination(combi)
+            sud.validateCombination(Colorcombination(combi))
 
 
     def testError_checkCombination(self):
@@ -66,24 +69,24 @@ class Testcases(unittest.TestCase):
                 combi = list(range(startValueOfCombi, endValueOfCombi))
                 with self.assertRaises(ValueError):
                     #print(str(startValueOfCombi) +" "+ str(endValueOfCombi) +" "+ str(combi) +" "+ str(len(combi)))
-                    sud.validateCombination(combi)
+                    sud.validateCombination(Colorcombination(combi))
         #numbers and dimension to high
         for startValueOfCombi in range(4, 6):
             for endValueOfCombi in range(4, 6):
                 combi = list(range(startValueOfCombi, endValueOfCombi))
                 with self.assertRaises(ValueError):
                     #print(str(startValueOfCombi) +" "+ str(endValueOfCombi) +" "+ str(combi) +" "+ str(len(combi)))
-                    sud.validateCombination(combi)
+                    sud.validateCombination(Colorcombination(combi))
 
         combi = [1, 1, 1, 1]
         with self.assertRaises(ValueError):
-            sud.validateCombination(combi)
+            sud.validateCombination(Colorcombination(combi))
         combi = [1, 1, 2, 1]
         with self.assertRaises(ValueError):
-            sud.validateCombination(combi)
+            sud.validateCombination(Colorcombination(combi))
         combi = [1, 2, 1, 3]
         with self.assertRaises(ValueError):
-            sud.validateCombination(combi)
+            sud.validateCombination(Colorcombination(combi))
 
 
     def testFunction_checkEvaluation(self):
@@ -120,6 +123,16 @@ class Testcases(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, True))
                     sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
+
+
+    def testError_validateAttempts(self):
+        sud = Validator(4, 8)
+        sud.validateAttempts(3)
+
+
+    def testError_validateForNoObviousRrrors(self):
+        sud = Validator(4, 8)
+        sud.validateForNoObviousRrrors(3)
 
 
 if __name__ == '__main__':

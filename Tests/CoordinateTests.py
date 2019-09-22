@@ -2,6 +2,7 @@
 import io
 import sys
 import Tests.TestCases.AttemptsTest
+import Tests.TestCases.ColorcombinationTest
 import Tests.TestCases.EvaluatedCombinationTest
 import Tests.TestCases.EvaluationTest
 import Tests.TestCases.EvaluatorTest
@@ -20,6 +21,10 @@ if __name__ == '__main__':
     sud = Tests.TestCases.AttemptsTest.Testcases()
     callTestcases(sud)
     print("AttemptsTest -> Done")
+
+    sud = Tests.TestCases.ColorcombinationTest.Testcases()
+    callTestcases(sud)
+    print("ColorcombinationTest -> Done")
 
     sud = Tests.TestCases.EvaluatedCombinationTest.Testcases()
     callTestcases(sud)

@@ -19,7 +19,7 @@ class GameCoordinator():
         self.__attempts = Attempts(commentate = False)
         self.__maxNumberOfAttempts = maxNumberOfAttempts
         self.__validator.validateMaxNumberOfAttempts(maxNumberOfAttempts)
-        self.player = NPC(lengthOfGuess, numberOfColors, self.__attempts) #HumanPlayer() #
+        self.player = NPC(lengthOfGuess, numberOfColors, self.__attempts)  # HumanPlayer() #
 
 
     def playGame(self):
@@ -58,9 +58,17 @@ class GameCoordinator():
 
     def __gameWon(self):
         self.__gameIsRunning = False
-        print("\nYou won the game.")
-        print("The MasterCombination was: " + str(self.__masterCombination) + ". You needed " + str(
-            self.__attempts.getNumberOfAttempts()) + " of " + str(self.__maxNumberOfAttempts) + " tries.")
+        try:
+            self.__validator.validateAttempts(self.__attempts)
+            print("\nYou won the game.")
+            print("The MasterCombination was: " + str(self.__masterCombination) + ". You needed " + str(
+                self.__attempts.getNumberOfAttempts()) + " of " + str(self.__maxNumberOfAttempts) + " tries.")
+            self.__validator.validateForNoObviousErrors(self.__attempts)
+        except ValueError:
+            print("\n Game has ended, but there was an error.")
+        except Exception as e:
+            print("\nBut you could have done better, believe me ..")
+            print(e)
 
 
     def __getAndProcessCombination(self):

@@ -1,4 +1,6 @@
 
+from GameLogic.Evaluation import Evaluation
+
 class Validator():
     def __init__(self, lengthOfGuess, numberOfColors):
         self.__lengthOfGuess = lengthOfGuess
@@ -35,12 +37,27 @@ class Validator():
 
 
     def validateAttempts(self, attempts):
-        raise NotImplementedError()
+        for attempt in attempts.getCombinations():
+            self.validateCombination(attempt.colorCombination)
+            self.validateEvaluation(attempt.evaluation)
 
 
-    def validateForNoObviousRrrors(self, attempts):
-        raise NotImplementedError()
-
+    def validateForNoObviousErrors(self, attempts):
+        rightColorsKnown = False
+        wrongColors = []
+        for attempt in attempts.getCombinations():
+            if attempts.getCombinations().count(attempt) > 1:
+                raise Exception("Multiple same combinations")
+            if rightColorsKnown:
+                if attempt.evaluation.getNumberOfRightColors() < self.__lengthOfGuess:
+                    raise Exception("You allready knewn all right colors.")
+            if attempt.evaluation.getNumberOfRightColors() == self.__lengthOfGuess:
+                rightColorsKnown = True
+            if attempt.colorCombination.hasAnyOfThisColor(wrongColors):
+                raise Exception("You use wrong colors, although you should have known.")
+            if attempt.evaluation == Evaluation(0, 0, False):
+                wrongColors += attempt.colorCombination.colorCombination
+                wrongColors = list(set(wrongColors))
 
     def validateEvaluation(self, evaluation):
         if not isinstance(evaluation.rightColorWrongPlace, int):
@@ -51,7 +68,7 @@ class Validator():
             raise ValueError('rightColorWrongPlace is out of range (' + str(evaluation.rightColorWrongPlace) +", " + str(self.__lengthOfGuess) + ")")
         if not 0 <= evaluation.rightColorRightPlace <= self.__lengthOfGuess:
             raise ValueError('rightColorRightPlace is out of range (' + str(evaluation.rightColorRightPlace) +", " + str(self.__lengthOfGuess) + ")")
-        if not 0 <= (evaluation.rightColorWrongPlace + evaluation.rightColorRightPlace) <= self.__lengthOfGuess:
+        if not 0 <= evaluation.getNumberOfRightColors() <= self.__lengthOfGuess:
             raise ValueError('rightColorRightPlace and rightColorWrongPlace combined are out of range (' + str(evaluation.rightColorWrongPlace) +", " + str(evaluation.rightColorRightPlace) +", " + str(self.__lengthOfGuess) + ")")
 
 

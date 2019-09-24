@@ -1,7 +1,9 @@
 
 from GameLogic.Validator import Validator
 from GameLogic.Evaluation import Evaluation
+from GameLogic.Attempts import Attempts
 from GameLogic.Colorcombination import Colorcombination
+from GameLogic.EvaluatedCombination import EvaluatedCombination
 from twisted.trial import unittest
 
 class Testcases(unittest.TestCase):
@@ -15,7 +17,6 @@ class Testcases(unittest.TestCase):
         self.testError_checkCombination()
         self.testFunction_checkEvaluation()
         self.testError_checkEvaluation()
-        self.testError_validateAttempts()
         self.testError_validateForNoObviousRrrors()
 
 
@@ -125,14 +126,56 @@ class Testcases(unittest.TestCase):
                     sud.validateEvaluation(Evaluation(startValueOfEval, endValueOfEval, False))
 
 
-    def testError_validateAttempts(self):
-        sud = Validator(4, 8)
-        sud.validateAttempts(3)
-
-
     def testError_validateForNoObviousRrrors(self):
         sud = Validator(4, 8)
-        sud.validateForNoObviousRrrors(3)
+        attempts = Attempts()
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([4, 5, 6, 7]), Evaluation(0, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        sud.validateForNoObviousErrors(attempts)
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([5, 6, 7, 0]), Evaluation(1, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        with self.assertRaises(Exception):
+            sud.validateForNoObviousErrors(attempts)
+
+        attempts.clearAttempts()
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 7, 0]), Evaluation(1, 1, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        sud.validateForNoObviousErrors(attempts)
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([5, 6, 7, 0]), Evaluation(1, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        sud.validateForNoObviousErrors(attempts)
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 2, 0]), Evaluation(1, 2, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        sud.validateForNoObviousErrors(attempts)
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([4, 5, 6, 7]), Evaluation(0, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        sud.validateForNoObviousErrors(attempts)
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([1, 2, 5, 0]), Evaluation(3, 0, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        with self.assertRaises(Exception):
+            sud.validateForNoObviousErrors(attempts)
+
+        attempts.clearAttempts()
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 7, 0]), Evaluation(1, 1, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        sud.validateForNoObviousErrors(attempts)
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([1, 3, 2, 0]), Evaluation(3, 1, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        sud.validateForNoObviousErrors(attempts)
+
+        evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 2, 0]), Evaluation(1, 2, False))
+        attempts.addEvaluatedCombination(evaluatedCombi)
+        with self.assertRaises(Exception):
+            sud.validateForNoObviousErrors(attempts)
 
 
 if __name__ == '__main__':

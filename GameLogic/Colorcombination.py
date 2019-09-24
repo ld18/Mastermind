@@ -1,4 +1,5 @@
 
+from termcolor import colored
 
 class Colorcombination():
 
@@ -20,6 +21,11 @@ class Colorcombination():
         return len(set(self.colorCombination).intersection(set(other.colorCombination))) > 0
 
 
+    def hasAnyOfThisColor(self, colorList):
+        tmpColorCombination = Colorcombination(colorList)
+        return self.hasAnyColorInCommon(tmpColorCombination)
+
+
     def hasAllColorsInCommon(self, other):
         if len(self.colorCombination) != len(other.colorCombination):
             return False
@@ -27,4 +33,14 @@ class Colorcombination():
 
 
     def __str__(self):
-        return str(self.colorCombination)
+        colorsOfColors = ["green", "yellow", "blue", "magenta", "cyan", "grey", "red", "white"]
+        representation = "["
+        for color in self.colorCombination:
+            try:
+                representation += colored(str(color), colorsOfColors[color])
+            except:
+                representation += str(color)
+            representation += ", "
+        representation = representation[:-2]
+        representation += "]"
+        return representation

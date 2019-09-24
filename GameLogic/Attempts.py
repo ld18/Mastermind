@@ -19,6 +19,9 @@ class Attempts():
                 print("On the way to Victory.")
 
 
+    def getCombinations(self):
+        return self.__combinations.copy()
+
 
     def checkIfCombinationExist(self, combination):
         return any(combi.colorCombination == combination for combi in self.__combinations)
@@ -54,7 +57,7 @@ class Attempts():
             raise ValueError('__combinations is empty')
         lenghtOfGuess = len(self.__combinations[0].colorCombination)
         for combi in self.__combinations:
-            if (combi.evaluation.rightColorRightPlace + combi.evaluation.rightColorWrongPlace) == lenghtOfGuess:
+            if combi.evaluation.getNumberOfRightColors() == lenghtOfGuess:
                 return combi.colorCombination
         raise ValueError('__combinations has no good attempts')
 

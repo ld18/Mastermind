@@ -8,6 +8,10 @@ class Evaluation():
         self.gameFinished = gameFinished
 
 
+    def getNumberOfRightColors(self):
+        return self.rightColorWrongPlace + self.rightColorRightPlace
+
+
     def __eq__(self, other):
         if self.rightColorWrongPlace != other.rightColorWrongPlace\
                 or self.rightColorRightPlace != other.rightColorRightPlace \
@@ -25,15 +29,5 @@ class Evaluation():
 
 
     def __str__(self):
-        representation = "("
-        if self.rightColorWrongPlace > 0:
-            representation += str(self.rightColorWrongPlace)
-        else:
-            representation += "-"
-        representation += "w|"
-        if self.rightColorRightPlace > 0:
-            representation += colored(str(self.rightColorRightPlace) +"r", 'red')
-        else:
-            representation += "-r"
-        representation += ")"
+        representation = "(" + str(self.rightColorWrongPlace) + "w|" + str(self.rightColorRightPlace) + ")"
         return representation

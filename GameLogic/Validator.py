@@ -1,5 +1,7 @@
+from twisted.conch.test.test_transport import common
 
 from GameLogic.Evaluation import Evaluation
+from GameLogic.Debriefing import Debriefing
 
 class Validator():
     def __init__(self, lengthOfGuess, numberOfColors):
@@ -47,17 +49,18 @@ class Validator():
         wrongColors = []
         for attempt in attempts.getCombinations():
             if attempts.getCombinations().count(attempt) > 1:
-                raise Exception("Multiple same combinations")
+                return Debriefing(True, "You used multipletimes the same combinations .. poor")
             if rightColorsKnown:
                 if attempt.evaluation.getNumberOfRightColors() < self.__lengthOfGuess:
-                    raise Exception("You allready knewn all right colors.")
+                    return Debriefing(True, "You allready knew all right colors.")
             if attempt.evaluation.getNumberOfRightColors() == self.__lengthOfGuess:
                 rightColorsKnown = True
             if attempt.colorCombination.hasAnyOfThisColor(wrongColors):
-                raise Exception("You use wrong colors, although you should have known.")
+                return Debriefing(True, "You used wrong colors, although you should have known the right ones.")
             if attempt.evaluation == Evaluation(0, 0, False):
                 wrongColors += attempt.colorCombination.colorCombination
                 wrongColors = list(set(wrongColors))
+        return Debriefing(False, "")
 
     def validateEvaluation(self, evaluation):
         if not isinstance(evaluation.rightColorWrongPlace, int):

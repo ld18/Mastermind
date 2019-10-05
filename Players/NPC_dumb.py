@@ -4,7 +4,7 @@ from itertools import permutations
 from Players.AbstractPlayer import AbstractPlayer
 from GameLogic.Colorcombination import Colorcombination
 
-class NPC(AbstractPlayer):
+class NPC_dumb(AbstractPlayer):
 
     def __init__(self, lengthOfGuess, numberOfColors, attempts):
         self.__lengthOfGuess = lengthOfGuess

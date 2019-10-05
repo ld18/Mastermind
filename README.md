@@ -6,3 +6,4 @@ The python Enviroment needs at least ..
   - termcolor (For colored text in console)
   - pypiwin32	(For testing)
   - Twisted	(For testing)
+  - python-constraint (For smart NPC)

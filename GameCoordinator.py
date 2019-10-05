@@ -6,7 +6,8 @@ from GameLogic.Attempts import Attempts
 from GameLogic.Colorcombination import Colorcombination
 from GameLogic.FinalScore import FinalScore
 from Players.HumanPlayer import HumanPlayer
-from Players.NPC import NPC
+from Players.NPC_dumb import NPC_dumb
+from Players.NPC_csp import NPC_csp
 
 class GameCoordinator():
 
@@ -19,7 +20,7 @@ class GameCoordinator():
         self.__attempts = Attempts(commentate = False)
         self.__maxNumberOfAttempts = maxNumberOfAttempts
         self.__validator.validateMaxNumberOfAttempts(maxNumberOfAttempts)
-        self.player = NPC(lengthOfGuess, numberOfColors, self.__attempts)  #HumanPlayer()
+        self.player = NPC_dumb(lengthOfGuess, numberOfColors, self.__attempts)#NPC_csp(lengthOfGuess, numberOfColors, self.__attempts) #  #HumanPlayer()
 
 
     def playGame(self):

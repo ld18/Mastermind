@@ -1,4 +1,3 @@
-from twisted.conch.test.test_transport import common
 
 from GameLogic.Evaluation import Evaluation
 from GameLogic.Debriefing import Debriefing

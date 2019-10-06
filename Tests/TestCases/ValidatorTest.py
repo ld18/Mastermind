@@ -133,13 +133,13 @@ class Testcases(unittest.TestCase):
         evaluatedCombi = EvaluatedCombination(Colorcombination([4, 5, 6, 7]), Evaluation(0, 0, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if debriefing.obiuseError:
+        if debriefing:
             self.fail()
 
         evaluatedCombi = EvaluatedCombination(Colorcombination([5, 6, 7, 0]), Evaluation(1, 0, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if not debriefing.obiuseError:
+        if not debriefing:
             self.fail()
 
         attempts.clearAttempts()
@@ -147,31 +147,31 @@ class Testcases(unittest.TestCase):
         evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 7, 0]), Evaluation(1, 1, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if debriefing.obiuseError:
+        if debriefing:
             self.fail()
 
         evaluatedCombi = EvaluatedCombination(Colorcombination([5, 6, 7, 0]), Evaluation(1, 0, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if debriefing.obiuseError:
+        if debriefing:
             self.fail()
 
         evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 2, 0]), Evaluation(1, 2, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if debriefing.obiuseError:
+        if debriefing:
             self.fail()
 
         evaluatedCombi = EvaluatedCombination(Colorcombination([4, 5, 6, 7]), Evaluation(0, 0, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if debriefing.obiuseError:
+        if debriefing:
             self.fail()
 
         evaluatedCombi = EvaluatedCombination(Colorcombination([1, 2, 5, 0]), Evaluation(3, 0, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if not debriefing.obiuseError:
+        if not debriefing:
             self.fail()
 
         attempts.clearAttempts()
@@ -179,19 +179,19 @@ class Testcases(unittest.TestCase):
         evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 7, 0]), Evaluation(1, 1, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if debriefing.obiuseError:
+        if debriefing:
             self.fail()
 
         evaluatedCombi = EvaluatedCombination(Colorcombination([1, 3, 2, 0]), Evaluation(3, 1, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if debriefing.obiuseError:
+        if debriefing:
             self.fail()
 
         evaluatedCombi = EvaluatedCombination(Colorcombination([5, 1, 2, 0]), Evaluation(1, 2, False))
         attempts.addEvaluatedCombination(evaluatedCombi)
         debriefing = sud.validateForNoObviousErrors(attempts)
-        if not debriefing.obiuseError:
+        if not debriefing:
             self.fail()
 
 

@@ -4,7 +4,7 @@ from itertools import permutations
 from Players.AbstractPlayer import AbstractPlayer
 from GameLogic.Colorcombination import Colorcombination
 
-class NPC_dumb(AbstractPlayer):
+class NPC_hardCoded(AbstractPlayer):
 
     def __init__(self, lengthOfGuess, numberOfColors, attempts):
         self.__lengthOfGuess = lengthOfGuess
@@ -13,18 +13,18 @@ class NPC_dumb(AbstractPlayer):
         self.strategy = self.strategy_automaticImprovedRandom
 
 
+    def introduceYourself(self):
+        print("This NPC tries to solve Mastermind by using a set of hard coded rules. \n"
+              "He tries to avoid obvious errors (double combinations, no right colors, all right colors) and generate the combinations randomly.\n")
+
+
     def readInputIn(self):
         return self.strategy()
 
 
-    def strategy_Random(self):
-        while True:
-            if input("Press enter to generate a new random combination. ") == "":
-                return random.sample(range(0, self.__numberOfColors), self.__lengthOfGuess)
-
-
-    def strategy_automaticRandom(self):
-        return random.sample(range(0, self.__numberOfColors), self.__lengthOfGuess)
+    def debriefing(self, obviousError):
+        if obviousError:
+            raise Exception("There should be no obvious Errors in my game!1")
 
 
     def strategy_automaticImprovedRandom(self):

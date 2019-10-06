@@ -83,14 +83,14 @@ class Testcases(unittest.TestCase):
             [0, 1, 2, 3]])
         sud.player = tp
         finalScore = sud.playGame()
-        self.assertEqual(finalScore == FinalScore(True, 1), True)
+        self.assertEqual(finalScore == FinalScore(True, 1, False), True)
 
         tp = TestPlayer([
             [0, 1, 2, 4],
             [0, 1, 2, 3]])
         sud.player = tp
         finalScore = sud.playGame()
-        self.assertEqual(finalScore == FinalScore(True, 2), True)
+        self.assertEqual(finalScore == FinalScore(True, 2, False), True)
 
         tp = TestPlayer([
             [0, 1, 2, 44],
@@ -98,7 +98,7 @@ class Testcases(unittest.TestCase):
             [0, 1, 2, 3]])
         sud.player = tp
         finalScore = sud.playGame()
-        self.assertEqual(finalScore == FinalScore(True, 2), True)
+        self.assertEqual(finalScore == FinalScore(True, 2, False), True)
 
         tp = TestPlayer([
             [0, 1, 2, 44],
@@ -108,7 +108,7 @@ class Testcases(unittest.TestCase):
             [0, 1, 2, 3]])
         sud.player = tp
         finalScore = sud.playGame()
-        self.assertEqual(finalScore == FinalScore(True, 2), True)
+        self.assertEqual(finalScore == FinalScore(True, 2, False), True)
 
         tp = TestPlayer([
             [0, 1, 2, 7],
@@ -117,7 +117,7 @@ class Testcases(unittest.TestCase):
             [0, 1, 2, 3]])
         sud.player = tp
         finalScore = sud.playGame()
-        self.assertEqual(finalScore == FinalScore(True, 4), True)
+        self.assertEqual(finalScore == FinalScore(True, 4, False), True)
 
         tp = TestPlayer([
             [0, 1, 2, 7],
@@ -126,7 +126,7 @@ class Testcases(unittest.TestCase):
             [0, 1, 2, 6]])
         sud.player = tp
         finalScore = sud.playGame()
-        self.assertEqual(finalScore == FinalScore(False, 4), True)
+        self.assertEqual(finalScore == FinalScore(False, 4, False), True)
 
 
 if __name__ == '__main__':

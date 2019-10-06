@@ -9,3 +9,12 @@ class AbstractPlayer(abc.ABC):
     @abc.abstractmethod
     def readInputIn(self):
         pass
+
+
+    @abc.abstractmethod
+    def introduceYourself(self):
+        pass
+
+
+    def debriefing(self, obviousError):
+        pass

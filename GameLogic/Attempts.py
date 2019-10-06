@@ -3,20 +3,12 @@ from GameLogic.Evaluation import Evaluation
 
 class Attempts():
 
-    def __init__(self, commentate = False):
+    def __init__(self):
         self.__combinations = []
-        self.__commentate = commentate
 
 
     def addEvaluatedCombination(self, evaluatedCombination):
         self.__combinations.append(evaluatedCombination)
-        if self.__commentate:
-            if evaluatedCombination.evaluation == Evaluation(0, 0, False):
-                print("This was a great nothing... .. .")
-            elif evaluatedCombination.evaluation == Evaluation(0, len(evaluatedCombination.colorCombination), True):
-                print("Bull's-Eye!!")
-            elif (evaluatedCombination.evaluation.rightColorWrongPlace + evaluatedCombination.evaluation.rightColorRightPlace) == len(evaluatedCombination.colorCombination):
-                print("On the way to Victory.")
 
 
     def getCombinations(self):

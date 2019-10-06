@@ -29,5 +29,5 @@ class Evaluation():
 
 
     def __str__(self):
-        representation = "(" + str(self.rightColorWrongPlace) + "w|" + str(self.rightColorRightPlace) + ")"
+        representation = "(" + str(self.rightColorWrongPlace) + "w|" + str(self.rightColorRightPlace) + "r)"
         return representation

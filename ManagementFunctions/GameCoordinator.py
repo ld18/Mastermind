@@ -18,29 +18,29 @@ class GameCoordinator():
         self.__masterCombination = masterCombination
         self.__validator.validateCombination(masterCombination)
         self.__evaluator = Evaluator(masterCombination)
-        self.__attempts = Attempts()
+        self.attempts = Attempts()
         self.__maxNumberOfAttempts = maxNumberOfAttempts
         self.__validator.validateMaxNumberOfAttempts(maxNumberOfAttempts)
         #self.player = HumanPlayer()
-        #self.player = NPC_random(lengthOfGuess, numberOfColors, self.__attempts)
-        #self.player = NPC_hardCoded(lengthOfGuess, numberOfColors, self.__attempts)
-        self.player = NPC_csp(lengthOfGuess, numberOfColors, self.__attempts)
+        #self.player = NPC_random(lengthOfGuess, numberOfColors, self.attempts)
+        #self.player = NPC_hardCoded(lengthOfGuess, numberOfColors, self.attempts)
+        self.player = NPC_csp(lengthOfGuess, numberOfColors, self.attempts)
 
 
     def playGame(self):
         if not self.__gameIsRunning:
             self.__gameStart()
             while self.__gameIsRunning:
-                if self.__attempts.getNumberOfAttempts() < self.__maxNumberOfAttempts:
+                if self.attempts.getNumberOfAttempts() < self.__maxNumberOfAttempts:
                     self.__playRound()
                 else:
                     self.__gameLost()
-                    return FinalScore(False, self.__attempts.getNumberOfAttempts(), self.__validator.validateForNoObviousErrors(self.__attempts))
-            return FinalScore(True, self.__attempts.getNumberOfAttempts(), self.__validator.validateForNoObviousErrors(self.__attempts))
+                    return FinalScore(False, self.attempts.getNumberOfAttempts(), self.__validator.validateForNoObviousErrors(self.attempts))
+            return FinalScore(True, self.attempts.getNumberOfAttempts(), self.__validator.validateForNoObviousErrors(self.attempts))
 
 
     def __gameStart(self):
-        self.__attempts.clearAttempts()
+        self.attempts.clearAttempts()
         self.__gameIsRunning = True
         print("\nStarted a new MindMaster Game.")
         print("Setup is "+ str(self.__validator) +", you have a maximum number of "+ str(self.__maxNumberOfAttempts) +" attempts.")
@@ -49,7 +49,7 @@ class GameCoordinator():
 
     def __endGame(self):
         self.__gameIsRunning = False
-        self.player.debriefing(self.__validator.validateForNoObviousErrors(self.__attempts))
+        self.player.debriefing(self.__validator.validateForNoObviousErrors(self.attempts))
 
 
     def __playRound(self):
@@ -57,34 +57,34 @@ class GameCoordinator():
         if gameIsFinished:
             self.__gameWon()
         else:
-            print(str(self.__attempts.getLastAttempt()) +" {"+ str(self.__attempts.getNumberOfAttempts()) +"/"+ str(self.__maxNumberOfAttempts) +"}")
+            print(str(self.attempts.getLastAttempt()) + " {" + str(self.attempts.getNumberOfAttempts()) + "/" + str(self.__maxNumberOfAttempts) + "}")
 
 
     def __gameLost(self):
         self.__endGame()
         print("\nYou lost the game.")
-        print("You have reached the maximum number of "+ str(self.__attempts.getNumberOfAttempts()) +" tries.")
-        print("You best attempt was "+ str(self.__attempts.getBestAttempt()) +".")
+        print("You have reached the maximum number of " + str(self.attempts.getNumberOfAttempts()) + " tries.")
+        print("You best attempt was " + str(self.attempts.getBestAttempt()) + ".")
 
 
     def __gameWon(self):
         self.__endGame()
         try:
-            self.__validator.validateAttempts(self.__attempts)
+            self.__validator.validateAttempts(self.attempts)
         except ValueError:
             print("\n Game has ended, but there was an error.")
 
         print("\nYou won the game.")
         print("The MasterCombination was: " + str(self.__masterCombination) + ". You needed " + str(
-            self.__attempts.getNumberOfAttempts()) + " of " + str(self.__maxNumberOfAttempts) + " tries.")
-        if self.__validator.validateForNoObviousErrors(self.__attempts):
+            self.attempts.getNumberOfAttempts()) + " of " + str(self.__maxNumberOfAttempts) + " tries.")
+        if self.__validator.validateForNoObviousErrors(self.attempts):
             print("\nBut you could have done better, believe me ..")
 
 
     def __getAndProcessCombination(self):
         newCombination = self.__getNewUserCombination()
         evaluation = self.__evaluator.evaluateCombination(newCombination)
-        self.__attempts.addEvaluatedCombination(EvaluatedCombination(newCombination, evaluation))
+        self.attempts.addEvaluatedCombination(EvaluatedCombination(newCombination, evaluation))
         return evaluation.gameFinished
 
 
@@ -97,3 +97,10 @@ class GameCoordinator():
             except ValueError as e:
                 print(str(e) +". Combination not valid, do it again. Just write the color values seperated by a whitespace and hit enter.")
         return userCmbi
+
+
+    def setMasterCombination(self, masterCombination):
+        if not self.__gameIsRunning:
+            self.__masterCombination = masterCombination
+            self.__validator.validateCombination(masterCombination)
+            self.__evaluator = Evaluator(masterCombination)

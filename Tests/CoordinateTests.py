@@ -10,12 +10,12 @@ import Tests.TestCases.GameCoordinatorTest
 import Tests.TestCases.ValidatorTest
 
 def callTestcases(sud):
+    text_trap = io.StringIO()
     sys.stdout = text_trap
     sud.testAll()
     sys.stdout = sys.__stdout__
 
-if __name__ == '__main__':
-    text_trap = io.StringIO()
+def callAllTestcases():
     print("Start all Testcases.\n")
 
     sud = Tests.TestCases.AttemptsTest.Testcases()
@@ -49,3 +49,6 @@ if __name__ == '__main__':
 
     print("\nSucessfully tested all Testcases")
 
+
+if __name__ == '__main__':
+    callAllTestcases()

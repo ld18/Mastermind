@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3166b95f-e03c-4c33-bba0-24e7e35c186e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ManagementFunctions/NpcPerformanceMeasure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameCoordinator.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManagementFunctions/GameCoordinator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Players/NPC_csp.py" beforeDir="false" afterPath="$PROJECT_DIR$/Players/NPC_csp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/CoordinateTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/CoordinateTests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/TestCases/GameCoordinatorTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/TestCases/GameCoordinatorTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +18,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="e#1#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Players/NPC_csp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="e#1#14#0" expanded="true" />
               </folding>
@@ -45,8 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GuessedCombination.py" />
-        <option value="$PROJECT_DIR$/Valuator.py" />
         <option value="$PROJECT_DIR$/Validator.py" />
         <option value="$PROJECT_DIR$/Evaluator.py" />
         <option value="$PROJECT_DIR$/GameLogic/GuessedCombination.py" />
@@ -69,7 +85,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/GameLogic/Combination.py" />
         <option value="$PROJECT_DIR$/Tests/TestCases/ColorcombinationTest.py" />
-        <option value="$PROJECT_DIR$/Tests/CoordinateTests.py" />
         <option value="$PROJECT_DIR$/Tests/TestCases/EvaluatorTest.py" />
         <option value="$PROJECT_DIR$/Tests/TestCases/EvaluatedCombinationTest.py" />
         <option value="$PROJECT_DIR$/Players/Commentator.py" />
@@ -94,8 +109,11 @@
         <option value="$PROJECT_DIR$/Players/NPC_hardCoded.py" />
         <option value="$PROJECT_DIR$/Players/NPC_random.py" />
         <option value="$PROJECT_DIR$/GameCoordinator.py" />
-        <option value="$PROJECT_DIR$/Players/NPC_csp.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/Tests/CoordinateTests.py" />
+        <option value="$PROJECT_DIR$/ManagementFunctions/GameCoordinator.py" />
+        <option value="$PROJECT_DIR$/Players/NPC_csp.py" />
+        <option value="$PROJECT_DIR$/ManagementFunctions/NpcPerformanceMeasure.py" />
       </list>
     </option>
   </component>
@@ -113,7 +131,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,7 +141,7 @@
             <path>
               <item name="Mastermind" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mastermind" type="462c0819:PsiDirectoryNode" />
-              <item name="GameLogic" type="462c0819:PsiDirectoryNode" />
+              <item name="ManagementFunctions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Mastermind" type="b2602c69:ProjectViewProjectNode" />
@@ -135,6 +152,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -143,17 +161,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\ManagementFunctions" />
+      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\Tests\TestCases" />
+      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\GameLogic" />
+      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind" />
+      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\Players" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\Players" />
       <recent name="C:\Users\Miix 700\Documents\Repositories\Mastermind\GameLogic" />
       <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\Tests\TestCases" />
       <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\Tests" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\Tests\TestCases" />
-      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\GameLogic" />
-      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind" />
-      <recent name="C:\Users\l_hq\Documents\Repositories\Mastermind\Players" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -190,6 +209,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="NpcPerformanceMeasure" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Mastermind" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ManagementFunctions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ManagementFunctions/NpcPerformanceMeasure.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Mastermind" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -209,20 +249,6 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Twisted Trial for AttemptsTest.Testcases.testAll" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
-      <module name="Mastermind" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests/TestCases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;AttemptsTest.Testcases.testAll&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Twisted Trial for ValidatorTest.Testcases.testAll" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
@@ -271,9 +297,9 @@
       <list>
         <item itemvalue="Python.main" />
         <item itemvalue="Python.CoordinateTests" />
+        <item itemvalue="Python.NpcPerformanceMeasure" />
         <item itemvalue="Python tests.Twisted Trial for ValidatorTest.Testcases.testError_validateForNoObviousRrrors" />
         <item itemvalue="Python tests.Twisted Trial for ValidatorTest.Testcases.testAll" />
-        <item itemvalue="Python tests.Twisted Trial for AttemptsTest.Testcases.testAll" />
       </list>
     </recent_temporary>
   </component>
@@ -326,12 +352,12 @@
     <frame x="54" y="-8" width="2514" height="1456" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20516963" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20516963" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32879817" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.39954337" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.39909297" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" />
@@ -440,16 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/CoordinateTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding>
-            <element signature="e#1#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestCases/AttemptsTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -474,13 +490,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GameLogic/Debriefing.py" />
-    <entry file="file://$PROJECT_DIR$/GameLogic/FinalScore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/TestCases/ValidatorTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="668">
@@ -515,13 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameLogic/Attempts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="58" column="28" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameLogic/Evaluation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -551,26 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Players/NPC_hardCoded.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="39" lean-forward="true" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Players/NPC_random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Players/AbstractPlayer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -585,26 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Players/NPC_csp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameCoordinator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-          <folding>
-            <element signature="e#1#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -612,10 +574,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GameLogic/Attempts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1044">
+          <caret line="58" column="28" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/CoordinateTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Players/NPC_random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="53" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameLogic/FinalScore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/site-packages/constraint/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="992" selection-start-line="992" selection-end-line="992" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Players/NPC_hardCoded.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="62" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="62" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ManagementFunctions/GameCoordinator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ManagementFunctions/NpcPerformanceMeasure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="933">
+          <caret line="57" column="67" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="67" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Players/NPC_csp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#1#14#0" expanded="true" />
           </folding>

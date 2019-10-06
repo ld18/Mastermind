@@ -1,5 +1,5 @@
 
-from GameCoordinator import GameCoordinator
+from ManagementFunctions.GameCoordinator import GameCoordinator
 from GameLogic.FinalScore import FinalScore
 from GameLogic.Colorcombination import Colorcombination
 from Players.TestPlayer import TestPlayer

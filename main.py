@@ -1,6 +1,6 @@
 
 import random
-from GameCoordinator import GameCoordinator
+from ManagementFunctions.GameCoordinator import GameCoordinator
 from GameLogic.Colorcombination import Colorcombination
 
 numberOfColors = 8

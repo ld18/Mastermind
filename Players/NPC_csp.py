@@ -13,8 +13,9 @@ class NPC_csp(AbstractPlayer):
         self.__attempts = attempts
         self.__cspVariables = []
         self.__cspVariablesStrings = []
+        self.cspSolvingStrategy = constraint.BacktrackingSolver()
         self.__cspProblem = self.__createBasicCSP()
-        self.strategy = self.__getNextPossibleCombination
+        self.strategy = self.strategy_getNextPossibleCombination
 
 
     def introduceYourself(self):
@@ -25,12 +26,8 @@ class NPC_csp(AbstractPlayer):
         return self.strategy()
 
 
-    def debriefing(self, obviousError):
-        if obviousError:
-            raise Exception("There should be no obvious Errors in my game!1")
-
-
     def __createBasicCSP(self):
+        self.__cspVariablesStrings = []
         cspProblem = constraint.Problem()
         cspVariablesIntervals = list(range(self.__numberOfColors))
         for count in range(self.__lengthOfGuess):
@@ -38,10 +35,11 @@ class NPC_csp(AbstractPlayer):
             self.__cspVariablesStrings.append(newVariable)
             cspProblem.addVariable(newVariable, cspVariablesIntervals)
         cspProblem.addConstraint(constraint.AllDifferentConstraint())
+        cspProblem.setSolver(self.cspSolvingStrategy)
         return cspProblem
 
 
-    def __getNextPossibleCombination(self):
+    def strategy_getNextPossibleCombination(self):
         lastAttempt = None
         try:
             lastAttempt = self.__attempts.getLastAttempt()
@@ -74,4 +72,13 @@ class NPC_csp(AbstractPlayer):
         tmpEvaluator = Evaluator(tmpMasterCombination)
         return tmpEvaluator.evaluateCombination(colorCombination)
 
+
+    def resetProblems(self):
+        self.__cspProblem.reset()
+        self.__cspProblem = self.__createBasicCSP()
+
+
+    def debriefing(self, obviousError):
+        if obviousError:
+            raise Exception("There should be no obvious Errors in my game!1")
 

@@ -1,6 +1,9 @@
-name: Python application
+name: Test_Master
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:

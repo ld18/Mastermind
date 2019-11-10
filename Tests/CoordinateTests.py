@@ -45,7 +45,6 @@ def callAllTestcases():
     sud = Tests.TestCases.ValidatorTest.Testcases()
     callTestcases(sud)
     print("ValidatorTest -> Done")
-    raise Exception("asdad")
 
     print("\nSucessfully tested all Testcases")
 

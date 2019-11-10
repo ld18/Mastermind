@@ -1,5 +1,6 @@
 
 class EvaluatedCombination():
+
     def __init__(self, colorCombination, evaluation):
         self.colorCombination = colorCombination
         self.evaluation = evaluation

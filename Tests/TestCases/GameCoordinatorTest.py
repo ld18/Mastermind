@@ -7,7 +7,6 @@ from twisted.trial import unittest
 
 class Testcases(unittest.TestCase):
 
-
     def testAll(self):
         self.testFunction_Constructor()
         self.testError_Constructor()

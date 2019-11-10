@@ -1,7 +1,6 @@
 
-from termcolor import colored
-
 class Evaluation():
+
     def __init__(self, rightColorWrongPlace, rightColorRightPlace, gameFinished):
         self.rightColorWrongPlace = rightColorWrongPlace
         self.rightColorRightPlace = rightColorRightPlace

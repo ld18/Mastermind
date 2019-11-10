@@ -2,6 +2,7 @@
 from GameLogic.Evaluation import Evaluation
 
 class Validator():
+
     def __init__(self, lengthOfGuess, numberOfColors):
         self.__lengthOfGuess = lengthOfGuess
         self.__numberOfColors = numberOfColors

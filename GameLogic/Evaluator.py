@@ -2,6 +2,7 @@
 from GameLogic.Evaluation import Evaluation
 
 class Evaluator():
+
     def __init__(self, masterCombination):
         self.__masterCombination = masterCombination
 

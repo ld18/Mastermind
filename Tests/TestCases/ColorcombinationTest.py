@@ -4,7 +4,6 @@ from twisted.trial import unittest
 
 class Testcases(unittest.TestCase):
 
-
     def testAll(self):
         self.test_eq()
         self.test_hasAnyColorInCommon()

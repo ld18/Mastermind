@@ -8,7 +8,6 @@ from twisted.trial import unittest
 
 class Testcases(unittest.TestCase):
 
-
     def testAll(self):
         self.testFunction_addEvaluatedCombination()
         self.testFunction_checkIfCombinationExist()

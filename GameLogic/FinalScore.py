@@ -1,5 +1,4 @@
 
-
 class FinalScore():
 
     def __init__(self, gameWon, numberOfAttempts, obviousError):

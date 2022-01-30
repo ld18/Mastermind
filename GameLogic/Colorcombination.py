@@ -37,7 +37,8 @@ class Colorcombination():
         representation = "["
         for color in self.colorCombination:
             try:
-                representation += colored(str(color), colorsOfColors[color])
+                representation += str(color)
+                #representation += colored(str(color), colorsOfColors[color])
             except:
                 representation += str(color)
             representation += ", "
